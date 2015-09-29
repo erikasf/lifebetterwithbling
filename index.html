@@ -2,8 +2,77 @@
 <head>
 	<script src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src = "https://github.com/erikasf/lifebetterwithbling/blob/master/script.js"></script>
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Lato:400,900|Montez);
+.sparkley{
+	height: 100%;
+}
+
+HTML, BODY {
+  height: 100%;
+  }
+
+$colors: #360745, #D61C59, #E7D84B, #EFEAC5, #1B8798;
+
+BODY {
+  background: hsl(200,70,11);
+  background-size: .12em 100%;
+  font: 16em/1 Arial;
+}
+
+.text--line {
+  font-size: .5em;
+  }
+.text--line3{
+	font-size:.2em;
+}
+.text--line4{
+	font-size:.1em;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  }
+
+$max: 5;
+$stroke-step: 7%; 
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+  stroke-width: 3px;
+  
+  animation: stroke-offset 9s infinite linear;
+  
+  @for $item from 1 through $max {
+    $stroke-color: nth($colors, $item);
+    
+    &:nth-child(#{$item}) {
+      stroke: $stroke-color;
+      stroke-dashoffset: $stroke-step * $item;
+      }
+    }
+  }
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: $stroke-step * $max;  
+    stroke-dasharray: 0 $stroke-step * $max*2.5;
+  }
+}
+h1{
+	font-family: Montez; 
+    font-size: .3em; 
+    font-weight: 300; 
+    margin: 0 0.3em; 
+    color: #ff0080; 
+  
+}
+	</style>
 </head>
-<body></body>
+<body>
 <div class = "sparkley"><h1> Remember Life is better blinged out</h1>
 <svg viewBox="0 0 800 600">
   <symbol id="s-text">
